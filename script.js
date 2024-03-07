@@ -6,17 +6,16 @@
 // L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 
 
-let price = 0.21;
-let discountUnder18 = 0.2;
-let discountOver65 = 0.4;
+const price = 0.21;
+const discountUnder18 = 0.2;
+const discountOver65 = 0.4;
 let age = parseInt(prompt('Quanti anni hai?'));
 let distance = parseInt(prompt('Quanti chilometri vuoi percorrere?'));
-let appliedPrice;
 let finalCost;
+let ticketEl = document.getElementById('costo-biglietto');
 
 console.log(age);
 console.log(distance);
-
 
 if (age < 18){
     finalCost = (price * (1 - discountUnder18)) * distance
@@ -28,8 +27,9 @@ if (age < 18){
 
 console.log(finalCost.toFixed(2));
 
-document.getElementById('costo-biglietto').innerHTML = finalCost.toFixed(2);
+ticketEl.innerHTML = finalCost.toFixed(2);
 
+// distance 10
 // age < 18 === 1.68000001
 // age > 65 === 1.26
 // 18 =< age < 65 === 2.1
